@@ -13,7 +13,7 @@ public:
 	window          window;
 	SDL_Rect        rect;
 	SDL_Rect        rect1;
-    SDL_Event       event;
+    	SDL_Event       event;
 	bool            running=1;
 
 protected:
