@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SDL2/sdl.h>
 #include <math.h>
+
 #include "window.hpp"
 #include "object.hpp"
 

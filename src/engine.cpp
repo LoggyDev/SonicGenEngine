@@ -5,6 +5,12 @@ void engine::engine_init () {
     obj_test.set_texture(window.renderer);
 }
 
+void engine::engine_limit_fps () {
+	frameTime=SDL_GetTicks ()-frameStart;
+	if(frameDelay > frameTime)
+		SDL_Delay(frameDelay-frameTime);
+}
+
 void engine::engine_run () {
 	while (running) {
 		frameStart=SDL_GetTicks ();
@@ -19,12 +25,6 @@ void engine::engine_run () {
 	}
 }
 
-void engine::engine_limit_fps () {
-	frameTime=SDL_GetTicks ()-frameStart;
-	if(frameDelay > frameTime)
-		SDL_Delay(frameDelay-frameTime);
-}
-
 void engine::engine_draw () {
     SDL_RenderClear(window.renderer);    // clear screen...
 	SDL_RenderPresent(window.renderer);  // render screen...
@@ -35,8 +35,8 @@ void engine::engine_update () {
 }
 
 void engine::engine_process_events () {
-	engine_update ();                   // update all objects including sonic...
-	engine_draw ();                     // draw everything to the screen... 
+	engine_update ();
+	engine_draw ();
 }
 
 
